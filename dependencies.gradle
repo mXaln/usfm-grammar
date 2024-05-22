@@ -1,0 +1,12 @@
+ext {
+    // Plugins
+    shadowPluginVer = '5.2.0'
+
+    // Libraries
+    kotlinVer = '1.5.31'
+    junitVer = '4.12'
+    jacksonVer = '2.11.0'
+    slf4jApiVer = '2.0.0-alpha1'
+    usfmToolsVer = '1.5.0'
+    picoCliVer = '4.7.6'
+}

@@ -1,0 +1,40 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "5.2.0"
+}
+
+apply plugin: 'application'
+apply plugin: 'idea'
+
+version = '0.0.1'
+
+application {
+    mainClassName = "org.bibletranslationtools.usfmgrammar.cli.Main"
+}
+
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+    implementation "info.picocli:picocli:$picoCliVer"
+    kapt "info.picocli:picocli-codegen:$picoCliVer"
+
+    implementation project(':common')
+}
+
+kapt {
+    arguments {
+        arg("project", "${project.group}/${project.name}")
+    }
+}
+
+// tell gradle what to put in the jar
+shadowJar {
+    archiveFileName = "${rootProject.name}-${project.name}.jar"
+    mergeServiceFiles()
+    manifest {
+        attributes(
+                'Main-Class': "org.bibletranslationtools.usfmgrammar.cli.Main"
+        )
+    }
+}

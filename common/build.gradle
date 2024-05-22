@@ -1,0 +1,8 @@
+dependencies {
+    implementation"com.fasterxml.jackson.core:jackson-databind:$jacksonVer"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVer"
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVer"
+    implementation "com.github.WycliffeAssociates:USFMToolsJava:$usfmToolsVer"
+
+    testImplementation group: 'junit', name: 'junit', version: "$junitVer"
+}
