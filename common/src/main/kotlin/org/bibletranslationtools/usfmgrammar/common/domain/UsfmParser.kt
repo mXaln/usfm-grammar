@@ -11,7 +11,7 @@ import java.io.File
 
 class UsfmParser {
 
-    fun parse(input: File, output: File?, format: String) {
+    fun parse(input: File, format: String): String {
         val parser = USFMParser()
         val parsedDoc = parser.parseFromString(input.readText())
 
@@ -52,9 +52,7 @@ class UsfmParser {
         }
 
         val outText = formatOutput(format, doc) ?: throw IllegalArgumentException("Format is not supported.")
-        output?.writeText(outText) ?: run {
-            println(outText)
-        }
+        return outText
     }
 
     private fun formatOutput(format: String, document: UsfmDocument): String? {
